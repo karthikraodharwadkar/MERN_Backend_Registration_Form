@@ -1,6 +1,7 @@
+require("dotenv").config()
 const express= require("express")
 const app=express();
-const PORT=8082;
+//const PORT=8082;
 const cors = require('cors');
 const mongoose = require("mongoose");
 const routes = require("./router/registration.route")
@@ -15,8 +16,8 @@ mongoose.connect(DB_URI).then(()=>{
     console.log("connected to MongoDB")
 })
 
-app.listen(PORT,()=>{
-    console.log("server started")
+app.listen(process.env.PORT,()=>{
+    console.log("server started",process.env.PORT)
 })
 
 app.use("/user",routes)
