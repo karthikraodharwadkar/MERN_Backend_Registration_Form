@@ -16,8 +16,8 @@ mongoose.connect(DB_URI).then(()=>{
     console.log("connected to MongoDB")
 })
 
-app.listen(process.env.PORT,()=>{
-    console.log("server started",process.env.PORT)
+app.listen(process.env.NODE_ENV,()=>{
+    console.log("server started",process.env.NODE_ENV)
 })
 
 app.use("/user",routes)
